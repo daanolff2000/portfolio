@@ -50,11 +50,6 @@ body{
     overflow: auto;
 }
 
-/* after menu toggle */
-body.active{
-    overflow: hidden;
-}
-
 
 /* HEADER */
 header{
