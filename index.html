@@ -31,26 +31,28 @@
             <span>...</span>
             <span>...</span>
         </button>
-        <nav id='menu'>
-            <svg viewBox='0 0 301 545' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <path class='blue-svg' d='M3 542.5V3H298V542.5H3Z' stroke='#2C308C' stroke-width='8'/>
-            </svg>              
-            <ul>
-                <li><a class='current' href='index.html'>Projects</a></li>
-                <li><a href='html/art.html'>Art</a></li>
-                <li><a href='html/about.html'>About</a></li>
-            </ul>
-        </nav>
-        <nav id='social-media'>
-            <ul>
-                <li><a href="">Insta</a></li>
-                <li><a href="">Facebook</a></li>
-                <li><a href="">LinkedIn</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
+        <section id="overlay">
+            <nav id='menu'>        
+                <ul>
+                    <li><a class='current' href='index.html'>Projects</a></li>
+                    <li><a href='html/art.html'>Art</a></li>
+                    <li><a href='html/about.html'>About</a></li>
+                </ul>
+            </nav>
+            <svg id='frame' width='100%' viewBox='0 0 360 480' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <rect id='path' x='5' y='5' width='350' height='470' stroke='#2C308D' stroke-width='10'/>
+            </svg>
+            <nav id='social-media'>
+                <ul>
+                    <li><a href=''>Insta</a></li>
+                    <li><a href=''>Facebook</a></li>
+                    <li><a href=''>LinkedIn</a></li>
+                </ul>
+            </nav> 
+        </section>
         <section id='projects'>
             <a id='helios' class='grid-item' href="html/helios.html">
                 <img src='img/helios.jpeg' alt='Helios Olff website'>
