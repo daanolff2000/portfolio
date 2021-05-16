@@ -127,7 +127,6 @@ section{
         text-align: center;
         justify-content: center;
         width: 100%;
-        background-color: #fff;
         opacity: 0;
         visibility: hidden;
         transform: translateX(100vw);
@@ -142,7 +141,8 @@ section{
         display: flex;
         flex-direction: column;
         height: 100vh;
-        top: 0;   
+        top: 0;
+        background-color: #fff;
     }
 
     nav#social-media{
@@ -198,16 +198,14 @@ section{
 
     /* animated SVG positioning */
     header svg{
+        height: 70vh;
         position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        padding: 100px 0;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
         opacity: 0;
         visibility: hidden;
-        transform: translateX(100vw);
-        transition: transform 0.5s cubic-bezier(0.64, 0.05, 0.35, 1), 
-                    visibility 0.5s cubic-bezier(0.64, 0.05, 0.35, 1),
+        transition: visibility 0.5s cubic-bezier(0.64, 0.05, 0.35, 1),
                     opacity 0.5s cubic-bezier(0.64, 0.05, 0.35, 1);
         z-index: 25;
         stroke-dasharray: 1710;
@@ -215,17 +213,27 @@ section{
     }
 
     .blue-svg{
-        width: 100%;
         height: 100%;
+    }
+
+    #menu ul, header svg{
+        margin-top: -20px;
     }
     
     /* after JS toggle function is called */
-    .active header nav, .active header ul, .active header svg{
+    .active header nav, .active header ul{
         opacity: 1;
         transform: translateX(0);
         visibility: visible;
         transition: transform 0.5s cubic-bezier(0.64, 0.05, 0.35, 1), 
                     visibility 0.5s cubic-bezier(0.64, 0.05, 0.35, 1),
+                    opacity 0.3s cubic-bezier(0.64, 0.05, 0.35, 1);
+    }
+
+    .active header svg{
+        opacity: 1;
+        visibility: visible;
+        transition: visibility 0.5s cubic-bezier(0.64, 0.05, 0.35, 1),
                     opacity 0.3s cubic-bezier(0.64, 0.05, 0.35, 1);
     }
 
