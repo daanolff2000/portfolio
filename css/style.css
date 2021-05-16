@@ -1,0 +1,358 @@
+:root {
+    --main-blue-color: #2c308d;
+    --second-blue-color: #8d98ca;
+    --black-color: #111822;
+}
+
+h1{
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+h2{
+    font-family: 'Roboto Mono', monospace;
+}
+
+p{
+    font-family: 'Roboto Mono', monospace;
+}
+
+button, a{
+    cursor: pointer;
+}
+
+/************** GLOBAL CSS **************/
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    width: 100%;
+    background-color: #fff;
+}
+
+
+/* HEADER */
+header{
+    position: fixed;
+    top: 0;
+    display: grid;
+    width: 100%;
+    background: #fff;
+    z-index: 10;
+}
+
+header #logo{
+    position: relative;
+    background: none;
+    border: none;
+}
+
+header img{
+    position: relative;
+    max-height: 100%;
+    justify-self: center;
+}
+
+/* style for current page */
+#menu a.current{
+    color: #2c2c2c;
+}
+
+/* style for hovering links */
+#menu a:hover{
+    color: var(--main-blue-color);
+}
+
+
+/* MAIN */
+main{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    padding-top: 80px;
+}
+
+section{
+    display: grid;
+}
+
+
+/* FOOTER */
+
+
+
+/************** OUTDATED DEVICES **************/
+@media screen and (max-width: 320px) {
+    
+}
+
+/************** SMARTPHONES **************/
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    /***** HEADER *****/
+    /* NAVIGATION */
+    header{
+        grid-template-columns: 40% 40% 20%;
+        grid-template-rows: 80px;
+        align-items: center;
+    }
+
+    nav#menu{
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        opacity: 0;
+        overflow: hidden;
+        visibility: hidden;
+        background-color: #fff;
+        transform: translateX(100vw);
+        transition: transform 0.5s cubic-bezier(0.64, 0.05, 0.35, 1), 
+                    visibility 0.5s cubic-bezier(0.64, 0.05, 0.35, 1),
+                    opacity 0.5s cubic-bezier(0.64, 0.05, 0.35, 1);
+        touch-action: manipulation;
+        z-index: 30;
+    }
+
+    /* after JS toggle function is called */
+    .active #menu{
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.5s cubic-bezier(0.64, 0.05, 0.35, 1), 
+                    visibility 0.5s cubic-bezier(0.64, 0.05, 0.35, 1),
+                    opacity 0.3s cubic-bezier(0.64, 0.05, 0.35, 1);
+    }
+
+    /* animated SVG positioning */
+    #menu svg{
+        position: absolute;
+        width: 68%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 35;
+        stroke-dasharray: 1710;
+        stroke-dashoffset: 1710;
+    }
+
+    /* after JS toggle function is called */
+    .active #menu svg{
+        animation: dash 1.3s linear forwards;
+    }
+
+    @keyframes dash {
+        to {
+          stroke-dashoffset: 0;
+        }
+    }
+
+    /* menu nav links */
+    #menu ul{
+        font-family: 'Lato', sans-serif;
+        font-size: 1.9em;
+        font-weight: 600;
+        list-style: none;
+        z-index: 40;
+        text-transform: uppercase;
+    }
+
+    #menu li{
+        margin: 0.9em auto;
+    }
+
+    #menu a{
+        padding: 0.2em 0.4em;
+        color: rgb(150, 150, 150);
+        text-decoration: none;
+    }
+
+
+    /* LOGO */
+    #logo{
+        position: absolute;
+        grid-column: 1/4;
+        grid-row: 1/2;
+        justify-self: center;
+        height: 60%;
+        padding: 0.4em;
+    }
+
+    /* HAMBURGER */
+    header #toggle{
+        position: relative;
+        grid-column: 3/4;
+        grid-row: 1/2;
+        justify-self: end;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        right: 5vw;
+        background: none;
+        border: none;
+        outline: none;
+        z-index: 35;
+    }
+
+    header #toggle span{
+        position: absolute;
+        display: block;
+        width: 80%;
+        height: 4px;
+        border-radius: 10px;
+        background-color: #000;
+        color: transparent;
+        transition: all ease 0.4s;
+    }
+
+    /* position hamburger bars */
+    #toggle span:nth-of-type(1) {
+        top: 25%;
+    }
+    
+    #toggle span:nth-of-type(2) {
+        top: 50%;
+        transform-origin: 100% 0;
+    }
+
+    #toggle span:nth-of-type(3) {
+        top: 75%;
+    }
+
+    /* after JS toggle function is called */
+    .active #toggle span:nth-of-type(1) {
+        transform: rotate(-45deg)!important;
+        top: 50%!important;
+        background-color: #000!important;
+    }
+
+    .active #toggle span:nth-of-type(2) {
+        transform: scaleX(0)!important;
+        background-color: #000!important;
+    }
+    
+    .active #toggle span:nth-of-type(3) {
+        transform: rotate(45deg)!important;
+        top: 50%!important;
+        background-color: #000!important;
+    }
+
+    /***** MAIN *****/
+    /* SECTION GRIDS */
+    #projects{
+        grid-template-areas:
+        "helios"
+        "southpark"
+        "darksouls"
+        "content";
+    }
+
+    /*#artwork{
+        grid-template-areas:
+        "";
+    }*/
+
+    /* grid items */
+    section .grid-item{
+        width: 100vw;
+        height: 100vw;
+        overflow: hidden;
+        padding: 15px;
+    }
+
+    .grid-item img{
+        position: relative;
+        height: 100%;
+    }
+
+    /* order and position of items */
+    a#helios{
+        grid-area: helios;
+        justify-self: center;
+    }
+    a#southpark{
+        grid-area: southpark;
+        justify-self: center;
+    }
+    a#darksouls{
+        grid-area: darksouls;
+        justify-self: center;
+    }
+    a#content{
+        grid-area: content;
+        justify-self: center;
+    }
+
+    /* ARTICLES */
+    article.more-info{
+        width: 100%;
+        padding: 0 30px;
+        background-color: #f8f8f8;
+    }
+
+    .more-info img{
+        width: 100%;
+    }
+
+    .more-info h1{
+        font-weight: 600;
+        font-size: 1.1em;
+        letter-spacing: 3.5px;
+        margin: 25px auto 5px;
+    }
+
+    .more-info h2{
+        font-weight: 500;
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        color: var(--main-blue-color);
+    }
+
+    .more-info p{
+        font-weight: 400;
+        font-size: 1em;
+        margin: 30px 0 25px;
+        text-align: left;
+    }
+
+    .more-info a{
+        display: inline-block;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 400;
+        font-size: 0.9em;
+        padding: 10px;
+        margin: -10px auto 15px;
+        color: var(--main-blue-color);
+    }
+
+}
+
+/************** MOST TABLETS **************/
+@media screen and (min-width: 768px) {
+    
+}
+
+/************** SMALLER DESKTOPS **************/
+@media screen and (min-width: 992px) {
+
+}
+
+/************** LARGE DEVICES **************/
+@media screen and (min-width: 1200px) {
+
+}
